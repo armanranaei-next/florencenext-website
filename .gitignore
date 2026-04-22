@@ -45,3 +45,5 @@ next-env.d.ts
 .claude.json
 CLAUDE.md
 AGENTS.md
+
+app/fonts/*.otf

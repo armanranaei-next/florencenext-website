@@ -1,20 +1,24 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { siteContent } from '@/content/site';
 import './globals.css';
 
-// Placeholder fonts — replace with the actual brand fonts from Figma.
-const fontSans = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const fontDisplay = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk', 
+const museoSans = localFont({
+  src: [
+    {
+      path: './fonts/MuseoSans-300.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/MuseoSans.otf',
+      weight: '500',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-museo-sans',
   display: 'swap',
 });
 
@@ -33,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable}`}>
+    <html lang="en" className={museoSans.variable}>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
