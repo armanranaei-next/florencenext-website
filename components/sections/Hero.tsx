@@ -32,13 +32,13 @@ type PillPosition = {
 
 const PILL_POSITIONS: Record<string, PillPosition> = {
   aws: { top: "3%", right: "25%", width: "15.5128%" },
-  kubernetes: { top: "50%", left: "9.2308%", width: "10%", translateY: "-50%" },
+  kubernetes: { top: "4%", left: "9.2308%", width: "10%", translateY: "-50%" },
   azure: { top: "24%", right: "0%", width: "19%" },
   informatica: { top: "29%", left: "0%", width: "26.5385%" },
   salesforce: { top: "56%", left: "10.5128%", width: "13%" },
   kong: { top: "46%", right: "12%", width: "18%" },
   claude: { top: "80%", left: "1.4872%", width: "21%" },
-  mulesoft: { top: "73%", right: "8%", width: "18%" },
+  mulesoft: { top: "73%", right: "13%", width: "18%" },
   databricks: { bottom: "84%", right: "56%", width: "13%" },
 };
 
@@ -78,25 +78,74 @@ export function Hero({ content }: Props) {
       {/* Stars overlay */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[url('/stars.svg')] bg-repeat opacity-70"
+        className="pointer-events-none absolute inset-0 z-0 bg-[url('/stars.svg')] bg-repeat opacity-70"
       />
 
-      {/* Logo + headline — normal flow, sits in the top-left */}
-      <div className="relative z-10 flex max-w-[55%] flex-col gap-[0.6rem]">
-        <Image
-          src="/hero_logo.svg"
-          alt="FlorenceNext — A Sirocco Group Company"
-          width={703}
-          height={170}
-          priority
-          className="h-auto w-full"
-        />
-        <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-white">
-          {content.headline}
-        </h1>
+      {/* 2-column row — logo+headline left, pills right */}
+      <div className="relative z-30 flex h-full flex-row">
+        {/* Left — logo + headline */}
+        <div className="flex w-1/2 flex-col gap-[2.625rem] justify-center">
+          <Image
+            src="/hero_logo.svg"
+            alt="FlorenceNext — A Sirocco Group Company"
+            width={703}
+            height={170}
+            priority
+            className="h-auto w-full"
+          />
+          <h1
+            className="text-4xl font-medium leading-[1.05] tracking-[-0.02em] text-white text-center
+"
+          >
+            {content.headline}
+          </h1>
+        </div>
+
+        {/* Right — pills wrapper. position: relative so pill %s resolve against it. */}
+        <div className="relative w-1/2" style={{ height: "33rem" }}>
+          {content.integrations.map((logo) => {
+            const dims = LOGO_DIMENSIONS[logo.name];
+            const posKey = logo.name.toLowerCase();
+            const pos = PILL_POSITIONS[posKey];
+            if (!dims || !pos) return null;
+
+            const isLargeRadius =
+              posKey === "kubernetes" ||
+              posKey === "salesforce" ||
+              posKey === "mulesoft";
+
+            return (
+              <div
+                key={logo.name}
+                className="animate-float absolute flex items-center justify-center bg-white"
+                style={{
+                  top: pos.top,
+                  right: pos.right,
+                  bottom: pos.bottom,
+                  left: pos.left,
+                  width: pos.width,
+                  transform: pos.translateY
+                    ? `translateY(${pos.translateY})`
+                    : undefined,
+                  borderRadius: isLargeRadius ? "2rem" : "1.5rem",
+                  padding: PILL_PADDING[posKey],
+                  animationDelay: PILL_DELAYS[posKey],
+                }}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={dims.width}
+                  height={dims.height}
+                  style={{ width: "auto", height: "auto", maxWidth: "100%" }}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Rocket — absolute on the section */}
+      {/* Rocket — absolute on the section, sits in front of cloud */}
       <Image
         src="/rocket.svg"
         alt=""
@@ -104,64 +153,18 @@ export function Hero({ content }: Props) {
         width={302}
         height={765}
         priority
-        className="absolute z-10 h-auto"
+        className="rocket-animate absolute z-20 h-auto"
         style={{ top: "26%", left: "65%", width: "17%" }}
       />
 
-      {/* Pills wrapper — absolute on the section; pills position against it */}
-      <div
-        className="absolute"
-        style={{ top: "18%", right: "3rem", width: "40%", height: "33rem" }}
-      >
-        {content.integrations.map((logo) => {
-          const dims = LOGO_DIMENSIONS[logo.name];
-          const posKey = logo.name.toLowerCase();
-          const pos = PILL_POSITIONS[posKey];
-          if (!dims || !pos) return null;
-
-          const isLargeRadius =
-            posKey === "kubernetes" ||
-            posKey === "salesforce" ||
-            posKey === "mulesoft";
-
-          return (
-            <div
-              key={logo.name}
-              className="animate-float absolute flex items-center justify-center bg-white"
-              style={{
-                top: pos.top,
-                right: pos.right,
-                bottom: pos.bottom,
-                left: pos.left,
-                width: pos.width,
-                transform: pos.translateY
-                  ? `translateY(${pos.translateY})`
-                  : undefined,
-                borderRadius: isLargeRadius ? "2rem" : "1.5rem",
-                padding: PILL_PADDING[posKey],
-                animationDelay: PILL_DELAYS[posKey],
-              }}
-            >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={dims.width}
-                height={dims.height}
-                style={{ height: "auto" }}
-              />
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Cloud — absolute at bottom-right, spills off right edge */}
+      {/* Cloud — absolute at bottom-right, sits behind rocket */}
       <Image
         src="/cloud.svg"
         alt=""
         aria-hidden
         width={1145}
         height={351}
-        className="pointer-events-none absolute bottom-0 right-0 z-20 h-auto"
+        className="pointer-events-none absolute bottom-0 right-0 z-[5] h-auto"
         style={{ width: "66%" }}
       />
     </section>
