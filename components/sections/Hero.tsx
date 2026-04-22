@@ -8,15 +8,15 @@ type Props = {
 // Logo natural dimensions from production WP. Pills size to these so each pill
 // width follows the logo's intrinsic ratio.
 const LOGO_DIMENSIONS: Record<string, { width: number; height: number }> = {
-  AWS:         { width: 66,  height: 40 },
-  Kubernetes:  { width: 51,  height: 50 },
-  Azure:       { width: 99,  height: 29 },
+  AWS: { width: 66, height: 40 },
+  Kubernetes: { width: 51, height: 50 },
+  Azure: { width: 99, height: 29 },
   Informatica: { width: 158, height: 40 }, // downscaled from 948x240
-  Salesforce:  { width: 61,  height: 43 },
-  Kong:        { width: 86,  height: 29 },
-  Claude:      { width: 107, height: 32 },
-  MuleSoft:    { width: 108, height: 33 },
-  Databricks:  { width: 65,  height: 37 },
+  Salesforce: { width: 61, height: 43 },
+  Kong: { width: 86, height: 29 },
+  Claude: { width: 107, height: 32 },
+  MuleSoft: { width: 108, height: 33 },
+  Databricks: { width: 65, height: 37 },
 };
 
 // Pill positions — %-based values sourced from the production Elementor CSS.
@@ -31,39 +31,39 @@ type PillPosition = {
 };
 
 const PILL_POSITIONS: Record<string, PillPosition> = {
-  aws:         { top: "3%",     right: "25%",     width: "15.5128%" },
-  kubernetes:  { top: "50%",    left: "9.2308%",  width: "10%",      translateY: "-50%" },
-  azure:       { top: "24%",    right: "0%",      width: "19%"      },
-  informatica: { top: "29%",    left: "0%",       width: "26.5385%" },
-  salesforce:  { top: "56%",    left: "10.5128%", width: "13%"      },
-  kong:        { top: "46%",    right: "12%",     width: "18%"      },
-  claude:      { top: "80%",    left: "1.4872%",  width: "21%"      },
-  mulesoft:    { top: "73%",    right: "8%",      width: "18%"      },
-  databricks:  { bottom: "84%", right: "56%",     width: "13%"      },
+  aws: { top: "3%", right: "25%", width: "15.5128%" },
+  kubernetes: { top: "50%", left: "9.2308%", width: "10%", translateY: "-50%" },
+  azure: { top: "24%", right: "0%", width: "19%" },
+  informatica: { top: "29%", left: "0%", width: "26.5385%" },
+  salesforce: { top: "56%", left: "10.5128%", width: "13%" },
+  kong: { top: "46%", right: "12%", width: "18%" },
+  claude: { top: "80%", left: "1.4872%", width: "21%" },
+  mulesoft: { top: "73%", right: "8%", width: "18%" },
+  databricks: { bottom: "84%", right: "56%", width: "13%" },
 };
 
 const PILL_PADDING: Record<string, string> = {
-  aws:         "1% 3%",
-  kubernetes:  "1% 0.5%",
-  azure:       "2%",
+  aws: "1% 3%",
+  kubernetes: "1% 0.5%",
+  azure: "2%",
   informatica: "1% 2%",
-  salesforce:  "1%",
-  kong:        "1% 2%",
-  claude:      "1% 2%",
-  mulesoft:    "0.5%",
-  databricks:  "0 2% 1% 2%",
+  salesforce: "1%",
+  kong: "1% 2%",
+  claude: "1% 2%",
+  mulesoft: "0.5%",
+  databricks: "0 2% 1% 2%",
 };
 
 const PILL_DELAYS: Record<string, string> = {
-  aws:         "0.2s",
-  kubernetes:  "0.5s",
-  azure:       "0.8s",
+  aws: "0.2s",
+  kubernetes: "0.5s",
+  azure: "0.8s",
   informatica: "0.6s",
-  salesforce:  "0.9s",
-  kong:        "1.2s",
-  claude:      "0.3s",
-  mulesoft:    "0.4s",
-  databricks:  "1s",
+  salesforce: "0.9s",
+  kong: "1.2s",
+  claude: "0.3s",
+  mulesoft: "0.4s",
+  databricks: "1s",
 };
 
 export function Hero({ content }: Props) {
@@ -111,7 +111,7 @@ export function Hero({ content }: Props) {
       {/* Pills wrapper — absolute on the section; pills position against it */}
       <div
         className="absolute"
-        style={{ top: "22%", right: 0, width: "50%", height: "33rem", marginRight: "3rem" }}
+        style={{ top: "18%", right: "3rem", width: "40%", height: "33rem" }}
       >
         {content.integrations.map((logo) => {
           const dims = LOGO_DIMENSIONS[logo.name];
