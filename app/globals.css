@@ -80,3 +80,15 @@
     @apply font-display tracking-tight;
   }
 }
+
+@layer utilities {
+  /* Use `translate` (not `transform`) so pills using transform: translateY(...)
+     for centering don't fight the float animation. */
+  @keyframes float {
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -8px; }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
