@@ -38,20 +38,20 @@ const PILL_POSITIONS: Record<string, PillPosition> = {
   salesforce: { top: "56%", left: "10.5128%", width: "13%" },
   kong: { top: "46%", right: "12%", width: "18%" },
   claude: { top: "80%", left: "1.4872%", width: "21%" },
-  mulesoft: { top: "73%", right: "13%", width: "18%" },
+  mulesoft: { top: "73%", right: "8%", width: "18%" },
   databricks: { bottom: "84%", right: "56%", width: "13%" },
 };
 
 const PILL_PADDING: Record<string, string> = {
   aws: "1% 3%",
   kubernetes: "1% 0.5%",
-  azure: "2%",
+  azure: "1% 1% 2% 1%",
   informatica: "1% 2%",
   salesforce: "1%",
   kong: "1% 2%",
   claude: "1% 2%",
   mulesoft: "0.5%",
-  databricks: "0 2% 1% 2%",
+  databricks: "0.5% 2% 1% 2%",
 };
 
 const PILL_DELAYS: Record<string, string> = {
@@ -69,7 +69,7 @@ const PILL_DELAYS: Record<string, string> = {
 export function Hero({ content }: Props) {
   return (
     <section
-      className="relative overflow-hidden h-[760px] pt-[4.5rem] pl-[4.25rem]"
+      className="relative overflow-hidden h-[760px] pt-[4.5rem] pl-[4.25rem] pb-[4.5rem]"
       style={{
         background:
           "linear-gradient(180deg, var(--brand-navy) 77%, var(--brand-blue) 100%)",
@@ -82,9 +82,9 @@ export function Hero({ content }: Props) {
       />
 
       {/* 2-column row — logo+headline left, pills right */}
-      <div className="relative z-30 flex h-full flex-row">
+      <div className="relative z-30 flex h-full flex-row gap-x-[0.6rem]">
         {/* Left — logo + headline */}
-        <div className="flex w-1/2 flex-col gap-[2.625rem] justify-center">
+        <div className="flex w-1/2 flex-col gap-[2.625rem] justify-center px-12">
           <Image
             src="/hero_logo.svg"
             alt="FlorenceNext — A Sirocco Group Company"
@@ -102,7 +102,7 @@ export function Hero({ content }: Props) {
         </div>
 
         {/* Right — pills wrapper. position: relative so pill %s resolve against it. */}
-        <div className="relative w-1/2" style={{ height: "33rem" }}>
+        <div className="relative w-1/2 mr-[3rem]" style={{ height: "33rem" }}>
           {content.integrations.map((logo) => {
             const dims = LOGO_DIMENSIONS[logo.name];
             const posKey = logo.name.toLowerCase();
@@ -127,7 +127,7 @@ export function Hero({ content }: Props) {
                   transform: pos.translateY
                     ? `translateY(${pos.translateY})`
                     : undefined,
-                  borderRadius: isLargeRadius ? "2rem" : "1.5rem",
+                  borderRadius: "2rem",
                   padding: PILL_PADDING[posKey],
                   animationDelay: PILL_DELAYS[posKey],
                 }}
