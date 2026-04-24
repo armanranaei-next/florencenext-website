@@ -34,7 +34,7 @@ const PILL_DELAYS: Record<string, string> = {
 export function Hero({ content }: Props) {
   return (
     <section
-      className="relative overflow-hidden h-[590px] pt-[3.75rem] lg:h-[760px] lg:pt-[4.5rem] lg:pl-[4.25rem]"
+      className="relative overflow-hidden h-[590px] pt-[3.75rem] md:h-[465px] md:pt-12 md:pl-12 lg:h-[760px] lg:pt-[4.5rem] lg:pl-[4.25rem]"
       style={{
         background:
           "linear-gradient(180deg, var(--brand-navy) 77%, var(--brand-blue) 100%)",
@@ -47,10 +47,10 @@ export function Hero({ content }: Props) {
       />
 
       {/* Column on mobile, 2-column row on lg+ */}
-      <div className="relative z-30 flex h-full flex-col gap-y-[2.31rem] lg:flex-row lg:gap-y-0 lg:gap-x-[0.6rem]">
+      <div className="relative z-30 flex h-full flex-col gap-y-[2.31rem] md:flex-row md:gap-y-0 md:gap-x-[6.625rem] lg:gap-x-[0.6rem]">
         {/* Logo + headline */}
-        <div className="flex w-full flex-col justify-center lg:w-1/2 lg:gap-[2.625rem] lg:px-12">
-          <div className="px-[3.53rem] py-[0.73rem] lg:p-0">
+        <div className="flex w-full flex-col justify-center md:w-[263px] md:gap-[2.625rem] md:px-12 lg:w-1/2">
+          <div className="px-[3.53rem] py-[0.73rem] md:px-0 md:py-4 lg:p-0">
             <Image
               src="/hero_logo.svg"
               alt="FlorenceNext — A Sirocco Group Company"
@@ -66,7 +66,7 @@ export function Hero({ content }: Props) {
         </div>
 
         {/* Pills wrapper — position: relative so pill %s resolve against it. */}
-        <div className="relative w-full h-[304px] px-[0.63rem] lg:w-1/2 lg:h-[33rem] lg:px-0">
+        <div className="relative w-full min-h-[19rem] px-[0.63rem] md:w-[303px] md:min-h-[25rem] md:mr-12 md:px-0 lg:w-1/2 lg:min-h-[33rem] lg:mr-0">
           {content.integrations.map((logo) => {
             const dims = LOGO_DIMENSIONS[logo.name];
             const posKey = logo.name.toLowerCase();

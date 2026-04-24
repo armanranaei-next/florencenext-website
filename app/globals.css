@@ -134,7 +134,7 @@
     border-radius: 2rem;
   }
 
-  /* Mobile (≤1023px) — pill positions */
+  /* Mobile (≤767px) — pill positions */
   .hero-pill[data-pill="aws"]         { top: 0%;     right: 26%;    width: 11.79%; padding: 0.5% 1.5%; }
   .hero-pill[data-pill="kubernetes"]  { top: 7.5%;   left: 25%;     width: 9.46%;  padding: 0.6% 1% 0.6% 1%; }
   .hero-pill[data-pill="azure"]       { top: 20.66%; right: 2.65%;  width: 16.97%; padding: 0.5% 1% 1%; }
@@ -145,9 +145,10 @@
   .hero-pill[data-pill="mulesoft"]    { top: 70%;    right: 7.1%;   width: 16.44%; padding: 1% 1%; }
   .hero-pill[data-pill="databricks"]  { bottom: 7%;  right: 18.75%; width: 12%;    padding: 1% 2%; }
 
-  /* Desktop (≥1024px) — ported from Hero.tsx PILL_POSITIONS + PILL_PADDING.
+  /* Tablet+ (≥768px) — ported from Hero.tsx PILL_POSITIONS + PILL_PADDING.
+     md and lg share pill positions per production data.
      Calibrated for 1440px; will be re-tuned when we have 1920px production data. */
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .hero-pill[data-pill="aws"]         { top: 3%;  right: 25%;     bottom: auto; left: auto;  width: 15.5128%; padding: 1% 3%; }
     .hero-pill[data-pill="kubernetes"]  { top: 4%;  left: 9.2308%;  bottom: auto; right: auto; width: 10%;      padding: 1% 0.5%; transform: translateY(-50%); }
     .hero-pill[data-pill="azure"]       { top: 24%; right: 0%;      bottom: auto; left: auto;  width: 19%;      padding: 1% 1% 2% 1%; }
@@ -161,13 +162,13 @@
 
   /* Rocket */
   .hero-rocket { top: 48%; left: 35%; width: 31.29%; }
-  @media (min-width: 1024px) {
-    .hero-rocket { top: 26%; left: 65%; width: 17%; }
+  @media (min-width: 768px) {
+    .hero-rocket { top: 26%; left: 65.5%; width: 17%; }
   }
 
   /* Cloud */
   .hero-cloud { bottom: 0; left: 0; right: auto; width: 100%; }
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .hero-cloud { bottom: 0; right: 0; left: auto; width: 66%; }
   }
 }
