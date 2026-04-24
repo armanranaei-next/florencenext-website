@@ -62,15 +62,6 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-
-  /* Responsive strategy: two structural breakpoints only.
-     `sm:`, `xl:`, `2xl:` are explicitly nulled — `clamp()` handles
-     everything between breakpoints. See CLAUDE.md → Responsive Strategy. */
-  --breakpoint-sm: initial;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: initial;
-  --breakpoint-2xl: initial;
 }
 
 @layer base {
@@ -152,18 +143,18 @@
     .hero-pill[data-pill="aws"]         { top: 3%;  right: 25%;     bottom: auto; left: auto;  width: 15.5128%; padding: 1% 3%; }
     .hero-pill[data-pill="kubernetes"]  { top: 4%;  left: 9.2308%;  bottom: auto; right: auto; width: 10%;      padding: 1% 0.5%; transform: translateY(-50%); }
     .hero-pill[data-pill="azure"]       { top: 24%; right: 0%;      bottom: auto; left: auto;  width: 19%;      padding: 1% 1% 2% 1%; }
-    .hero-pill[data-pill="informatica"] { top: 29%; left: 0%;       bottom: auto; right: auto; width: 26.5385%; padding: 1% 2%; }
-    .hero-pill[data-pill="salesforce"]  { top: 56%; left: 10.5128%; bottom: auto; right: auto; width: 13%;      padding: 1%; }
+    .hero-pill[data-pill="informatica"] { top: 29%; left: 5%;       bottom: auto; right: auto; width: 26.5385%; padding: 1% 2%; }
+    .hero-pill[data-pill="salesforce"]  { top: 56%; left: 15%; bottom: auto; right: auto; width: 13%;      padding: 1%; }
     .hero-pill[data-pill="kong"]        { top: 46%; right: 12%;     bottom: auto; left: auto;  width: 18%;      padding: 1% 2%; }
-    .hero-pill[data-pill="claude"]      { top: 80%; left: 1.4872%;  bottom: auto; right: auto; width: 21%;      padding: 1% 2%; }
-    .hero-pill[data-pill="mulesoft"]    { top: 73%; right: 8%;      bottom: auto; left: auto;  width: 18%;      padding: 0.5%; }
+    .hero-pill[data-pill="claude"]      { top: 75%; left: 5%;  bottom: auto; right: auto; width: 21%;      padding: 1% 2%; }
+    .hero-pill[data-pill="mulesoft"]    { top: 68%; right: 8%;      bottom: auto; left: auto;  width: 18%;      padding: 0.5%; }
     .hero-pill[data-pill="databricks"]  { bottom: 84%; right: 56%;  top: auto;    left: auto;  width: 13%;      padding: 0.5% 2% 1% 2%; }
   }
 
   /* Rocket */
   .hero-rocket { top: 48%; left: 35%; width: 31.29%; }
   @media (min-width: 768px) {
-    .hero-rocket { top: 26%; left: 65.5%; width: 17%; }
+    .hero-rocket { top: 20%; left: 65.5%; width: 17%; }
   }
 
   /* Cloud */
