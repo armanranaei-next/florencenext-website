@@ -113,11 +113,14 @@
   /* ===== Hero positioning =====
      Pill, rocket, cloud positions vary per breakpoint, so they live in CSS
      (inline styles can't respond to media queries).
-     Mobile values are the base; lg: overrides for 1024px+ (laptop+).
-     Values sourced from production Elementor at 375px and 1440px. */
+     Mobile values are the base; @variant md overrides apply at ≥768px
+     (md and lg share tablet+ layout per production data).
+     Values sourced from production Elementor at 375px and 1440px;
+     tablet+ will be re-tuned when we have 1920px production data. */
 
   .hero-pill {
     position: absolute;
+    top: auto; right: auto; bottom: auto; left: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,41 +128,109 @@
     border-radius: 2rem;
   }
 
-  /* Mobile (≤767px) — pill positions */
-  .hero-pill[data-pill="aws"]         { top: 0%;     right: 26%;    width: 11.79%; padding: 0.5% 1.5%; }
-  .hero-pill[data-pill="kubernetes"]  { top: 7.5%;   left: 25%;     width: 9.46%;  padding: 0.6% 1% 0.6% 1%; }
-  .hero-pill[data-pill="azure"]       { top: 20.66%; right: 2.65%;  width: 16.97%; padding: 0.5% 1% 1%; }
-  .hero-pill[data-pill="informatica"] { top: 27.31%; left: 2.64%;   width: 25.26%; padding: 1% 1%; }
-  .hero-pill[data-pill="salesforce"]  { top: 55.68%; left: 12.59%;  width: 13.20%; padding: 0.5% 1.5%; }
-  .hero-pill[data-pill="kong"]        { top: 46%;    right: 14.9%;  width: 15.41%; padding: 1% 1%; }
-  .hero-pill[data-pill="claude"]      { top: 83.53%; left: 6.023%;  width: 19.68%; padding: 1% 1%; }
-  .hero-pill[data-pill="mulesoft"]    { top: 70%;    right: 7.1%;   width: 16.44%; padding: 1% 1%; }
-  .hero-pill[data-pill="databricks"]  { bottom: 7%;  right: 18.75%; width: 12%;    padding: 1% 2%; }
+  .hero-pill[data-pill="aws"] {
+    top: 4%; right: 28%; width: 11.79%; padding: 0.5% 1.5%;
 
-  /* Tablet+ (≥768px) — ported from Hero.tsx PILL_POSITIONS + PILL_PADDING.
-     md and lg share pill positions per production data.
-     Calibrated for 1440px; will be re-tuned when we have 1920px production data. */
-  @media (min-width: 768px) {
-    .hero-pill[data-pill="aws"]         { top: 3%;  right: 25%;     bottom: auto; left: auto;  width: 15.5128%; padding: 1% 3%; }
-    .hero-pill[data-pill="kubernetes"]  { top: 4%;  left: 9.2308%;  bottom: auto; right: auto; width: 10%;      padding: 1% 0.5%; transform: translateY(-50%); }
-    .hero-pill[data-pill="azure"]       { top: 24%; right: 0%;      bottom: auto; left: auto;  width: 19%;      padding: 1% 1% 2% 1%; }
-    .hero-pill[data-pill="informatica"] { top: 29%; left: 5%;       bottom: auto; right: auto; width: 26.5385%; padding: 1% 2%; }
-    .hero-pill[data-pill="salesforce"]  { top: 56%; left: 15%; bottom: auto; right: auto; width: 13%;      padding: 1%; }
-    .hero-pill[data-pill="kong"]        { top: 46%; right: 12%;     bottom: auto; left: auto;  width: 18%;      padding: 1% 2%; }
-    .hero-pill[data-pill="claude"]      { top: 75%; left: 5%;  bottom: auto; right: auto; width: 21%;      padding: 1% 2%; }
-    .hero-pill[data-pill="mulesoft"]    { top: 68%; right: 8%;      bottom: auto; left: auto;  width: 18%;      padding: 0.5%; }
-    .hero-pill[data-pill="databricks"]  { bottom: 84%; right: 56%;  top: auto;    left: auto;  width: 13%;      padding: 0.5% 2% 1% 2%; }
+    @variant md {
+      top: 3%; right: 25%; width: 15.5128%; padding: 1% 3%;
+    }
+  }
+  .hero-pill[data-pill="kubernetes"] {
+    top: 7.5%; left: 25%; width: 9.46%; padding: 0.6% 1% 0.6% 1%;
+
+    @variant md {
+      top: 4%; left: 9.2308%; width: 10%; padding: 1% 0.5%; transform: translateY(-50%);
+    }
+    @variant xl {
+      top: 4%; left: 9.2308%; width: 10%; padding: 1% 1%; transform: translateY(-50%);
+    }
+    @variant 2xl {
+      top: 4%; left: 9.2308%; width: 8%; padding: 1% 1%; transform: translateY(-50%);
+    }
+  }
+  .hero-pill[data-pill="azure"] {
+    top: 20.66%; right: 7.65%; width: 16.97%; padding: 0.5% 1% 1%;
+
+    @variant md {
+      top: 24%; right: 0%; width: 19%; padding: 1% 1% 2% 1%;
+    }
+  }
+  .hero-pill[data-pill="informatica"] {
+    top: 27.31%; left: 2.64%; width: 25.26%; padding: 1% 1%;
+
+    @variant md {
+      top: 29%; left: 5%; width: 26.5385%; padding: 1% 2%;
+    }
+  }
+  .hero-pill[data-pill="salesforce"] {
+    top: 55.68%; left: 12.59%; width: 13.20%; padding: 0.5% 1.5%;
+
+    @variant md {
+      top: 56%; left: 15%; width: 13%; padding: 1%;
+    }
+    @variant lg {
+      top: 48%; left: 15%; width: 13%; padding: 1%;
+    }
+  }
+  .hero-pill[data-pill="kong"] {
+    top: 46%; right: 14.9%; width: 15.41%; padding: 1% 1%;
+
+    @variant md {
+      top: 46%; right: 12%; width: 18%; padding: 1% 2%;
+    }
+  }
+  .hero-pill[data-pill="claude"] {
+    top: 83.53%; left: 6.023%; width: 19.68%; padding: 1% 1%;
+
+    @variant md {
+      top: 75%; left: 5%; width: 21%; padding: 1% 2%;
+    }
+    @variant lg {
+      top: 65%; left: 5%; width: 21%; padding: 1% 2%;
+    }
+    @variant xl {
+      top: 74%; left: 5%; width: 21%; padding: 1% 2%;
+    }
+  }
+  .hero-pill[data-pill="mulesoft"] {
+    top: 70%; right: 7.1%; width: 16.44%; padding: 1% 1%;
+
+    @variant md {
+      top: 68%; right: 8%; width: 18%; padding: 0.5%;
+    }
+    @variant lg {
+      top: 60%; right: 8%; width: 18%; padding: 0.5%;
+    }
+    @variant xl {
+      top: 68%; right: 8%; width: 18%; padding: 0.5%;
+    }
+  }
+  .hero-pill[data-pill="databricks"] {
+    bottom: 7%; right: 18.75%; width: 12%; padding: 1% 2%;
+
+    @variant md {
+      bottom: 84%; right: 56%; width: 13%; padding: 0.5% 2% 1% 2%;
+    }
+    @variant lg {
+      bottom: 85%; right: 61%; width: 13%; padding: 0.5% 2% 1% 2%;
+    }
   }
 
   /* Rocket */
-  .hero-rocket { top: 48%; left: 35%; width: 31.29%; }
-  @media (min-width: 768px) {
-    .hero-rocket { top: 20%; left: 65.5%; width: 17%; }
+  .hero-rocket {
+    top: 48%; left: 35%; width: 31.29%;
+
+    @variant md {
+      top: 20%; left: 65.5%; width: 17%;
+    }
   }
 
   /* Cloud */
-  .hero-cloud { bottom: 0; left: 0; right: auto; width: 100%; }
-  @media (min-width: 768px) {
-    .hero-cloud { bottom: 0; right: 0; left: auto; width: 66%; }
+  .hero-cloud {
+    bottom: 0; left: 0; right: auto; width: 100%;
+
+    @variant md {
+      left: auto; right: 0; width: 66%;
+    }
   }
 }

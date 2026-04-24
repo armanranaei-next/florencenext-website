@@ -60,7 +60,7 @@ export function Hero({ content }: Props) {
               className="h-auto w-full"
             />
           </div>
-          <h1 className="text-[clamp(1.5rem,4vw,2.25rem)] 2xl:text-[3.5rem] font-medium leading-[1.05] tracking-[-0.02em] text-white text-center">
+          <h1 className="text-[1.5rem] md:text-[1.6rem] lg:text-[2.4rem] 2xl:text-[3.5rem] font-medium leading-[1.05] tracking-[-0.02em] text-white text-center">
             {content.headline}
           </h1>
         </div>
