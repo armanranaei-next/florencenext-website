@@ -54,27 +54,39 @@ export type HeroSection = {
   integrations: HeroIntegration[];
 };
 
-export interface IntroSection {
-  eyebrow: string;
-  headline: string;
-  headlineAccent?: string;
-  body: string[];
+export interface HeadlineToken {
+  text: string;
+  highlight?: boolean;
 }
 
-export interface PartnerCard {
-  logo: ImageAsset;
+export interface IntroContent {
+  eyebrow: string;
+  headline: HeadlineToken[];
+  paragraphs: string[];
+}
+
+export interface Partner {
+  id: string;
   name: string;
+  logoSrc: string;
+  logoAlt: string;
+  logoWidth: number;
+  logoHeight: number;
   title: string;
   description: string;
 }
 
-export interface PartnersSection {
-  cards: PartnerCard[];
-  cta: {
-    headline: string;
-    button: CtaButton;
-    illustration: ImageAsset;
-  };
+export interface PartnersCtaCard {
+  imageSrc: string;
+  imageAlt: string;
+  headline: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+export interface PartnersContent {
+  partners: Partner[];
+  ctaCard: PartnersCtaCard;
 }
 
 export interface ServiceTab {
@@ -159,8 +171,8 @@ export interface ContactCtaSection {
 
 export interface HomePageContent {
   hero: HeroSection;
-  intro: IntroSection;
-  partners: PartnersSection;
+  intro: IntroContent;
+  partners: PartnersContent;
   services: ServicesSection;
   results: ResultsSection;
   projects: ProjectsSection;

@@ -55,6 +55,7 @@
   --color-brand-blue-hover: var(--brand-blue-hover);
   --color-brand-navy: #000719;
   --color-brand-cream: #F2ECE5;
+  --color-brand-cyan: #00A1E0;
 
   --font-sans: var(--font-museo-sans);
   --font-display: var(--font-museo-sans);
@@ -108,6 +109,10 @@
     animation:
       rocket-fly-in 1.5s ease-out forwards,
       rocket-rumble 0.2s infinite ease-in-out 1.5s;
+  }
+
+  .card-stacked {
+    box-shadow: 0 8px 0 -1px rgba(168, 149, 119, 0.55);
   }
 
   /* ===== Hero positioning =====
