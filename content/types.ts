@@ -106,18 +106,24 @@ export interface ServicesSection {
 }
 
 export interface StatCard {
+  id: string;
   label: string;
   value: string;
   description: string;
-  image?: ImageAsset;
 }
 
-export interface ResultsSection {
+export interface ResultsContent {
   eyebrow: string;
-  headline: string;
-  headlineAccent?: string;
+  headline: HeadlineToken[];
+  photo: {
+    src: string;
+    alt: string;
+  };
   stats: StatCard[];
-  dashboardImage: ImageAsset;
+  illustration: {
+    src: string;
+    alt: string;
+  };
 }
 
 export interface ProjectCard {
@@ -174,7 +180,7 @@ export interface HomePageContent {
   intro: IntroContent;
   partners: PartnersContent;
   services: ServicesSection;
-  results: ResultsSection;
+  results: ResultsContent;
   projects: ProjectsSection;
   testimonials: TestimonialsSection;
   news: NewsSection;

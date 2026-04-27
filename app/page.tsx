@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Partners } from "@/components/sections/Partners";
+import { Results } from "@/components/sections/Results";
 import { homeContent } from "@/content/home";
 
 export default function HomePage() {
@@ -9,6 +10,7 @@ export default function HomePage() {
       <Hero content={homeContent.hero} />
       <Intro content={homeContent.intro} />
       <Partners content={homeContent.partners} />
+      <Results content={homeContent.results} />
     </>
   );
 }

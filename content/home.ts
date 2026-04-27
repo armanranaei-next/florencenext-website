@@ -1,6 +1,6 @@
 import type { HomePageContent } from './types';
 
-export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners'> = {
+export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results'> = {
   hero: {
     headline: "We Deliver and Care",
     integrations: [
@@ -85,6 +85,41 @@ export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners'> =
       headline: "Free advice.\nBook a callback",
       ctaLabel: "Let's Talk",
       ctaHref: "/contact",
+    },
+  },
+  results: {
+    eyebrow: "Why choose us",
+    headline: [
+      { text: "Results that we " },
+      { text: "successfully deliver", highlight: true },
+    ],
+    photo: {
+      src: "/images/results-photo.jpg",
+      alt: "Professional reviewing data on a tablet",
+    },
+    stats: [
+      {
+        id: "projects",
+        label: "Projects completed",
+        value: "40+",
+        description: "Over 40 successful projects delivered to our clients worldwide.",
+      },
+      {
+        id: "csat",
+        label: "Customer Satisfaction CSAT",
+        value: "4.9/5",
+        description: "Don't trust us, ask our clients.",
+      },
+      {
+        id: "integrated",
+        label: "Integrated systems",
+        value: "250+",
+        description: "Deep expertise across platforms — we speak every system language.",
+      },
+    ],
+    illustration: {
+      src: "/images/results-illustration.svg",
+      alt: "Data dashboard illustration",
     },
   },
 };
