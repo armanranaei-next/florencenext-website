@@ -1,6 +1,6 @@
 import type { HomePageContent } from './types';
 
-export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results' | 'services' | 'projects' | 'testimonials'> = {
+export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results' | 'services' | 'projects' | 'testimonials' | 'recentPosts'> = {
   hero: {
     headline: "We Deliver and Care",
     integrations: [
@@ -283,6 +283,59 @@ export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 
           "Florence Next enabled us to unify data from numerous sources, automate critical workflows, and expand the reach and richness of our AI capabilities. Their partnership has been instrumental in driving efficiency and intelligent decision-making across the business",
         authorName: "Yorai Ben Haim",
         authorRole: "Director of Business Operations Technology",
+      },
+    ],
+  },
+  recentPosts: {
+    eyebrow: "Recent Posts",
+    headline: [
+      { text: "Latest news and " },
+      { text: "industry insights", highlight: true },
+    ],
+    posts: [
+      {
+        id: "mulesoft-4-migration-guidance",
+        title: "Mulesoft 4 migration guidance",
+        excerpt:
+          "We bring deep, functional expertise, but are known for our holistic perspective: we capture value across boundaries…",
+        category: "Company",
+        date: "2024-11-20",
+        author: "Florence Next",
+        imageSrc: "/posts/mulesoft-4-migration-guidance.jpg",
+        href: "/blog/mulesoft-4-migration-guidance",
+      },
+      {
+        id: "florence-next-health-check-connector",
+        title: "Introducing Florence Next Health Check connector",
+        excerpt:
+          "We bring deep, functional expertise, but are known for our holistic perspective: we capture value across boundaries…",
+        category: "Lifestyle",
+        date: "2024-11-20",
+        author: "Florence Next",
+        imageSrc: "/posts/florence-next-health-check-connector.png",
+        href: "/blog/florence-next-health-check-connector",
+      },
+      {
+        id: "mule-java-sdk-and-xml-sdk",
+        title: "Some thoughts about Mule Java SDK and XML SDK",
+        excerpt:
+          "We bring deep, functional expertise, but are known for our holistic perspective: we capture value across boundaries…",
+        category: "Social Media",
+        date: "2024-11-20",
+        author: "Florence Next",
+        imageSrc: "/posts/mule-java-sdk-and-xml-sdk.png",
+        href: "/blog/mule-java-sdk-and-xml-sdk",
+      },
+      {
+        id: "digital-transformation-covid-19",
+        title: "Digital Transformation Stories During COVID-19",
+        excerpt:
+          "We bring deep, functional expertise, but are known for our holistic perspective: we capture value across boundaries…",
+        category: "Lifestyle",
+        date: "2024-11-20",
+        author: "Florence Next",
+        imageSrc: "/posts/digital-transformation-covid-19.jpg",
+        href: "/blog/digital-transformation-covid-19",
       },
     ],
   },

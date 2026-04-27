@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Partners } from "@/components/sections/Partners";
 import { Projects } from "@/components/sections/Projects";
+import { RecentPosts } from "@/components/sections/RecentPosts";
 import { Results } from "@/components/sections/Results";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Services content={homeContent.services} />
       <Projects content={homeContent.projects} />
       <Testimonials content={homeContent.testimonials} />
+      <RecentPosts content={homeContent.recentPosts} />
     </>
   );
 }

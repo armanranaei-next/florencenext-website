@@ -157,20 +157,21 @@ export interface TestimonialsSection {
   testimonials: Testimonial[];
 }
 
-export interface NewsCard {
-  slug: string;
-  image: ImageAsset;
+export interface Post {
+  id: string;
+  title: string;
+  excerpt: string;
   category: string;
   date: string;
-  title: string;
+  author: string;
+  imageSrc: string;
   href: string;
 }
 
-export interface NewsSection {
+export interface RecentPostsSection {
   eyebrow: string;
-  headline: string;
-  headlineAccent?: string;
-  posts: NewsCard[];
+  headline: HeadlineToken[];
+  posts: Post[];
 }
 
 export interface ContactCtaSection {
@@ -187,6 +188,6 @@ export interface HomePageContent {
   results: ResultsContent;
   projects: ProjectsSection;
   testimonials: TestimonialsSection;
-  news: NewsSection;
+  recentPosts: RecentPostsSection;
   contact: ContactCtaSection;
 }
