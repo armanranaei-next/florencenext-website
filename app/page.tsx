@@ -4,6 +4,7 @@ import { Partners } from "@/components/sections/Partners";
 import { Projects } from "@/components/sections/Projects";
 import { Results } from "@/components/sections/Results";
 import { Services } from "@/components/sections/Services";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { homeContent } from "@/content/home";
 
 export default function HomePage() {
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Results content={homeContent.results} />
       <Services content={homeContent.services} />
       <Projects content={homeContent.projects} />
+      <Testimonials content={homeContent.testimonials} />
     </>
   );
 }

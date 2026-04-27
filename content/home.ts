@@ -1,6 +1,6 @@
 import type { HomePageContent } from './types';
 
-export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results' | 'services' | 'projects'> = {
+export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results' | 'services' | 'projects' | 'testimonials'> = {
   hero: {
     headline: "We Deliver and Care",
     integrations: [
@@ -264,6 +264,25 @@ export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 
         logoMaxHeight: 56,
         bgColor: "#4A0E12",
         href: "/projects/kone-data-monetizations",
+      },
+    ],
+  },
+  testimonials: {
+    illustrationSrc: "/testimonials-illustration.svg",
+    testimonials: [
+      {
+        id: "matthew-delaney",
+        quote:
+          "Florence Next has provided outstanding support in the Nordics and together we have helped several of our very strategic clients to achieve their goals.",
+        authorName: "Matthew Delaney",
+        authorRole: "Mulesoft Nordics Professional Services Lead",
+      },
+      {
+        id: "yorai-ben-haim",
+        quote:
+          "Florence Next enabled us to unify data from numerous sources, automate critical workflows, and expand the reach and richness of our AI capabilities. Their partnership has been instrumental in driving efficiency and intelligent decision-making across the business",
+        authorName: "Yorai Ben Haim",
+        authorRole: "Director of Business Operations Technology",
       },
     ],
   },
