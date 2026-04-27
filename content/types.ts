@@ -125,20 +125,24 @@ export interface ResultsContent {
   };
 }
 
-export interface ProjectCard {
-  slug: string;
-  name: string;
-  image: ImageAsset;
-  tag: string;
-  href?: string;
+export interface Project {
+  id: string;
+  brand: string;
+  projectName: string;
+  category: string;
+  logoSrc: string;
+  logoWidth: number;
+  logoHeight: number;
+  logoMaxHeight?: number;
+  bgColor: string;
+  href: string;
 }
 
 export interface ProjectsSection {
   eyebrow: string;
-  headline: string;
-  headlineAccent?: string;
-  description: string;
-  projects: ProjectCard[];
+  headline: HeadlineToken[];
+  subhead: string;
+  projects: Project[];
 }
 
 export interface Testimonial {
