@@ -89,20 +89,19 @@ export interface PartnersContent {
   ctaCard: PartnersCtaCard;
 }
 
-export interface ServiceTab {
+export interface Service {
   id: string;
   title: string;
   description: string;
-  tags?: string[];
+  tags: string[];
 }
 
 export interface ServicesSection {
   eyebrow: string;
-  headline: string;
-  headlineAccent?: string;
-  illustration: ImageAsset;
-  tabs: ServiceTab[];
-  viewAllCta: CtaButton;
+  headline: HeadlineToken[];
+  services: Service[];
+  ctaLabel: string;
+  ctaHref: string;
 }
 
 export interface StatCard {

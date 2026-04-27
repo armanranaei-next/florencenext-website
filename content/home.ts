@@ -1,6 +1,6 @@
 import type { HomePageContent } from './types';
 
-export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results'> = {
+export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 'results' | 'services'> = {
   hero: {
     headline: "We Deliver and Care",
     integrations: [
@@ -121,5 +121,68 @@ export const homeContent: Pick<HomePageContent, 'hero' | 'intro' | 'partners' | 
       src: "/images/results-illustration.svg",
       alt: "Data dashboard illustration",
     },
+  },
+  services: {
+    eyebrow: "Our services",
+    headline: [
+      { text: "Digital services to " },
+      { text: "grow your business", highlight: true },
+    ],
+    services: [
+      {
+        id: "ai-integration-assessment",
+        title: "AI & Integration Assessment",
+        description:
+          "We evaluate your systems and data readiness for AI adoption, ensuring seamless integration across platforms. Our assessment identifies opportunities to automate, connect, and optimize your ecosystem for smarter, faster business outcomes.",
+        tags: [
+          "AI Readiness",
+          "Automation Strategy",
+          "Data Optimization",
+          "Intelligent Ecosystem",
+          "System Integration",
+        ],
+      },
+      {
+        id: "staff-augmentation",
+        title: "Staff Augmentation",
+        description:
+          "We supply specialized professionals who quickly integrate with your team, increasing flexibility and filling skill gaps without lengthy hiring processes. This approach accelerates projects and ensures high-quality results.",
+        tags: [
+          "Flexible Workforce",
+          "IT Staffing",
+          "Scalable Resources",
+          "Skilled Professionals",
+          "Team Integration",
+        ],
+      },
+      {
+        id: "full-project-management",
+        title: "Full-Project Management",
+        description:
+          "We handle the entire project lifecycle from planning to delivery, ensuring timely completion, budget adherence, and high standards. By managing coordination, risk mitigation, and strategic oversight, we let you focus on your core business.",
+        tags: [
+          "Agile",
+          "End-to-end Management",
+          "Project Coordination",
+          "Risk Mitigation",
+          "Strategic Oversight",
+        ],
+      },
+      {
+        id: "consulting-packages",
+        title: "Consulting Packages",
+        description:
+          "We deliver fixed-scope consulting packages tailored to defined business challenges, providing senior expertise without long-term commitments. Each package combines clear deliverables, agreed timelines, and a focused team to accelerate decisions and reduce risk.",
+        tags: [
+          "Fixed Scope",
+          "Senior Expertise",
+          "Defined Deliverables",
+          "Strategic Guidance",
+          "Quick Engagement",
+        ],
+      },
+    ],
+    ctaLabel: "View all services",
+    ctaHref: "/services",
   },
 };
