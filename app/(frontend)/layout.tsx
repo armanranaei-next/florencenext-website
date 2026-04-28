@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { siteContent } from '@/content/site';
-import './globals.css';
+import '../globals.css';
 
 const museoSans = localFont({
   src: [

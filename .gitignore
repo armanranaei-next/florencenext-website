@@ -47,3 +47,10 @@ CLAUDE.md
 AGENTS.md
 
 app/fonts/*.otf
+app/(frontend)/fonts/*.otf
+
+# payload
+payload.db
+payload.db-journal
+/media
+payload-types.ts
