@@ -56,6 +56,7 @@
   --color-brand-navy: #000719;
   --color-brand-cream: #F2ECE5;
   --color-brand-cyan: #00A1E0;
+  --color-brand-charcoal: #212227;
 
   --font-sans: var(--font-museo-sans);
   --font-display: var(--font-museo-sans);
@@ -236,6 +237,54 @@
 
     @variant md {
       left: auto; right: 0; width: 66%;
+    }
+  }
+
+  /* ===== /our-story hero clouds =====
+     Two decorative clouds positioned absolutely against the hero section.
+     Mobile values are the base; @variant md / @variant lg override them. */
+
+  .our-story-cloud {
+    position: absolute;
+    top: auto; right: auto; bottom: auto; left: auto;
+  }
+
+  .our-story-cloud[data-cloud="1"] {
+    top: 4%; left: 50%; transform: translateX(-50%); width: 8rem;
+
+    @variant md {
+      top: 8%; right: 6%; left: auto; transform: none; width: 9rem;
+    }
+    @variant lg {
+      top: 12%; right: 8%; width: 10rem;
+    }
+  }
+
+  .our-story-cloud[data-cloud="2"] {
+    bottom: 6%; right: 4%; width: 9rem;
+
+    @variant md {
+      bottom: 8%; right: 0; width: 10rem;
+    }
+    @variant lg {
+      bottom: auto; top: 55%; right: 0; width: 11rem;
+    }
+  }
+
+  /* Use `translate` (not `transform`) so cloud 1's mobile centering
+     transform: translateX(-50%) doesn't fight the drift animation. */
+  @keyframes cloud-drift {
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 4px -6px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .cloud-float {
+      animation: cloud-drift 8s ease-in-out infinite;
+    }
+    .cloud-float-delayed {
+      animation: cloud-drift 10s ease-in-out infinite;
+      animation-delay: -3s;
     }
   }
 }

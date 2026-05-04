@@ -191,3 +191,15 @@ export interface HomePageContent {
   recentPosts: RecentPostsSection;
   contact: ContactCtaSection;
 }
+
+/** /our-story page section shapes */
+
+export interface OurStoryHero {
+  eyebrow: string;
+  headline: string;
+  subtitle: string;
+}
+
+export interface OurStoryPageContent {
+  hero: OurStoryHero;
+}
