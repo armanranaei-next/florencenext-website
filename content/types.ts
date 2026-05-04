@@ -57,6 +57,7 @@ export type HeroSection = {
 export interface HeadlineToken {
   text: string;
   highlight?: boolean;
+  color?: 'cyan';
 }
 
 export interface IntroContent {
@@ -200,6 +201,60 @@ export interface OurStoryHero {
   subtitle: string;
 }
 
+export type RichTextNode =
+  | string
+  | { strong: string }
+  | { em: string }
+  | { strong_em: string };
+
+export type Paragraph = RichTextNode[];
+
+export interface OurStoryOrigins {
+  eyebrow: string;
+  headline: HeadlineToken[];
+  paragraphs: Paragraph[];
+  standout: string;
+  illustration: { src: string; alt: string };
+}
+
+export interface OurStoryStats {
+  items: {
+    value: string;
+    label: string;
+  }[];
+}
+
+export interface OurStoryConnect {
+  eyebrow: string;
+  headline: HeadlineToken[];
+  paragraphs: Paragraph[];
+  cta: { label: string; href: string };
+  illustration: { src: string; alt: string };
+}
+
+export interface OurStoryPartnership {
+  eyebrow: string;
+  headline: HeadlineToken[];
+  video: {
+    src: string | null;
+    poster: string;
+    title: string;
+  };
+  body: {
+    left: Paragraph[];
+    right: Paragraph[];
+  };
+  features: {
+    icon: 'results' | 'growth' | 'quality';
+    title: string;
+    description: string;
+  }[];
+}
+
 export interface OurStoryPageContent {
   hero: OurStoryHero;
+  origins: OurStoryOrigins;
+  stats: OurStoryStats;
+  connect: OurStoryConnect;
+  partnership: OurStoryPartnership;
 }

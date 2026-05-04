@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
+import { EyebrowPill } from '@/components/EyebrowPill';
 import type { OurStoryHero } from '@/content/types';
 
 export function Hero({ eyebrow, headline, subtitle }: OurStoryHero) {
@@ -24,9 +25,7 @@ export function Hero({ eyebrow, headline, subtitle }: OurStoryHero) {
         data-cloud="2"
       />
       <Container className="relative z-10">
-        <span className="inline-block rounded-full bg-brand-cyan px-4 py-2 text-sm font-medium text-brand-cream mb-6">
-          {eyebrow}
-        </span>
+        <EyebrowPill className="mb-6">{eyebrow}</EyebrowPill>
         <h1 className="font-medium tracking-tight text-brand-cream text-[5rem] md:text-[4.5rem] 2xl:text-[5rem] leading-[1.05]">
           {headline}
         </h1>
