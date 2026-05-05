@@ -258,3 +258,67 @@ export interface OurStoryPageContent {
   connect: OurStoryConnect;
   partnership: OurStoryPartnership;
 }
+
+/** /sirocco-the-group page section shapes */
+
+export interface SiroccoGroupHeroContent {
+  videoSrc: string;
+  posterSrc: string;
+  ariaLabel: string;
+}
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+export interface SiroccoGroupOurStoryContent {
+  breadcrumb: BreadcrumbItem[];
+  headline: HeadlineToken[];
+  paragraphs: string[];
+  illustration: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+export interface SiroccoGroupPartnershipContent {
+  headline: HeadlineToken[];
+  paragraphs: string[];
+  illustration: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+export interface ExpertiseCard {
+  id: string;
+  title: string;
+  blurb: string;
+  logo: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+export interface SiroccoGroupTechnicalExpertiseContent {
+  eyebrow: string;
+  headline: HeadlineToken[];
+  intro: string;
+  ctaHref: string;
+  ctaLabel: string;
+  cards: ExpertiseCard[];
+}
+
+export interface SiroccoGroupPageContent {
+  hero: SiroccoGroupHeroContent;
+  ourStory: SiroccoGroupOurStoryContent;
+  partnership: SiroccoGroupPartnershipContent;
+  technicalExpertise: SiroccoGroupTechnicalExpertiseContent;
+}

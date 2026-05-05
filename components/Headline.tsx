@@ -3,15 +3,14 @@ import type { HeadlineToken } from '@/content/types';
 
 type HeadlineTag = 'h1' | 'h2' | 'h3';
 
-interface HeadlineProps {
+interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> {
   tokens: HeadlineToken[];
   as?: HeadlineTag;
-  className?: string;
 }
 
-export function Headline({ tokens, as: Tag = 'h2', className }: HeadlineProps) {
+export function Headline({ tokens, as: Tag = 'h2', className, ...props }: HeadlineProps) {
   return (
-    <Tag className={cn(className)}>
+    <Tag className={cn(className)} {...props}>
       {tokens.map((token, i) => {
         const isCyan = token.color === 'cyan' || token.highlight === true;
         return (

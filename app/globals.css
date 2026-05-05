@@ -287,4 +287,14 @@
       animation-delay: -3s;
     }
   }
+
+  /* ===== /sirocco-the-group hero =====
+     Render both <video> and <img poster>; swap via prefers-reduced-motion.
+     Keyed by .sirocco-hero on the wrapper section. */
+  .sirocco-hero img { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sirocco-hero video { display: none; }
+    .sirocco-hero img { display: block; }
+  }
 }
